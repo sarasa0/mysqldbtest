@@ -434,8 +434,8 @@
     </configuration>
     <list>
       <item itemvalue="Application.Conexion" />
-      <item itemvalue="Application.Main" />
       <item itemvalue="Application.Example3" />
+      <item itemvalue="Application.Main" />
       <item itemvalue="Application.UserInterface" />
     </list>
     <recent_temporary>
