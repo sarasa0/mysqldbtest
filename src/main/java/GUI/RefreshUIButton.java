@@ -1,6 +1,5 @@
 package GUI;
 
-import ErrorHandlers.DAOException;
 import ErrorHandlers.GUIException;
 import ErrorHandlers.ServiceException;
 
@@ -8,9 +7,13 @@ import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import static com.sun.deploy.uitoolkit.ToolkitStore.dispose;
 
 public class RefreshUIButton extends JButton{
+    private JFrame myFrame;
+
+    public RefreshUIButton getButton(){
+        return this;
+    }
 
     public RefreshUIButton(String text){
         setModel(new DefaultButtonModel());
@@ -28,7 +31,7 @@ public class RefreshUIButton extends JButton{
             @Override
             public void mouseReleased(MouseEvent e) {
                 try {
-                    dispose();
+                    myFrame.dispose();
                     new UserInterface();
                 } catch (Exception e1) {
                     try {
@@ -48,5 +51,8 @@ public class RefreshUIButton extends JButton{
             }
         };
         addMouseListener(a);
+    }
+    public void setMyFrame (JFrame myFrame){
+        this.myFrame=myFrame;
     }
 }

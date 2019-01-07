@@ -25,6 +25,7 @@ public class UserInterface extends JFrame {
 
     public void CrearUI() {
         treepanel = new PanelTree();
+        treepanel.getRefresh().setMyFrame(this);
         querypanel = new PanelQuery();
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
