@@ -6,7 +6,6 @@ import javax.swing.*;
 import java.sql.*;
 import java.util.ArrayList;
 
-//TODO MANEJAR QUERYS DE USE O QUERYS MULTIPLES (putah vidah)
 //ALTER TABLE table ADD nombreAtributo tipoAtributo / DROP COLUMN nombreAtributo / MODIFY COLUMN nombreAtributo tipoAtributo
 //CREATE TABLE tabla (atributo1 tipoAtributo1, atributo2 tipoAtributo2);
 //DROP TABLE tabla
@@ -35,6 +34,7 @@ public class OperacionesDAOMysqlImpl implements OperacionesDAO {
             } else {
                 p.executeUpdate();
                 JOptionPane.showMessageDialog(null, "OPERATION SUCESSFULL");
+                conexion.close();
             }
             return null;
         } catch (SQLException e) {
@@ -69,7 +69,8 @@ public class OperacionesDAOMysqlImpl implements OperacionesDAO {
         ColumnNames = new ArrayList<>();
         ResultSetMetaData nombres = data.getMetaData();
         for (int i = 0; i < nombres.getColumnCount(); i++) {
-            ColumnNames.add(nombres.getColumnName(i + 1));
+            ColumnNames.add(nombres.getColumnLabel(i + 1));
+        //    ColumnNames.add(nombres.getColumnName(i + 1));        original
         }
     }
 

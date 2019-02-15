@@ -11,10 +11,6 @@ import java.awt.event.MouseListener;
 public class RefreshUIButton extends JButton{
     private JFrame myFrame;
 
-    public RefreshUIButton getButton(){
-        return this;
-    }
-
     public RefreshUIButton(String text){
         setModel(new DefaultButtonModel());
         init(text,null);
